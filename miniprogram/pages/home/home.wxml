@@ -1,0 +1,55 @@
+<view class="container">
+  <view class="header">
+    <swiper class="swiper-wrap" >
+      <swiper-item>
+        <image src="../../assets/images/d1.jpg" mode=""/>
+      </swiper-item>
+      <swiper-item>
+        <image src="../../assets/images/d2.jpg" mode=""/>
+      </swiper-item>
+      <swiper-item>
+        <image src="../../assets/images/d3.jpg" mode=""/>
+      </swiper-item>
+    </swiper>
+  </view>
+  <view class="placeholder"></view>
+  <view class="body">
+    <view class="body-top">
+      <view class="top-left">
+        <view class="item-wrap">
+          <image src="../../assets/images/card.png" mode=""/>
+          <view>
+            <text>魔力卡牌</text>
+          </view>
+        </view>
+      </view>
+      <view class="top-right">
+        <view class="item-wrap">
+          <image class="heart" src="../../assets/images/love_click.png" bindtap="animateHeart" mode=""/>
+
+        </view>
+      </view>
+    </view>
+    <view class="body-bottom">
+      <view class="bottom-left">
+        <view class="item-wrap">
+          <image src="../../assets/images/map.png" mode=""/>
+          <view>
+            <text>共享位置</text>
+          </view>
+        </view>
+      </view>
+      <view class="bottom-right">
+        <view class="item-wrap" bindtap="secretTap">
+          <image src="../../assets/images/private.png" mode=""/>
+          <view>
+            <text>秘密花园</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="footer">
+    <image src="../../assets/images/flame-love.png" mode=""/>
+  </view>
+</view>

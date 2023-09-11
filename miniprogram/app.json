@@ -1,0 +1,45 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/home/home",
+    "pages/profile/profile",
+    "pages/times/times",
+    "pages/games/games",
+    "pages/secret/secret"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
+  },
+  "tabBar": {
+    "color": "#a9b7b7",
+    "selectedColor": "#11cd6e",
+    "borderStyle": "white",
+    "list": [
+      {
+        "selectedIconPath": "assets/images/times_active.png",
+        "iconPath": "assets/images/times.png",
+        "pagePath": "pages/times/times",
+        "text": ""
+      },
+      {
+        "selectedIconPath": "assets/images/love.png",
+        "iconPath": "assets/images/love.png",
+        "pagePath": "pages/home/home",
+        "text": ""
+      },
+      {
+        "selectedIconPath": "assets/images/profile_active.png",
+        "iconPath": "assets/images/profile.png",
+        "pagePath": "pages/profile/profile",
+        "text": ""
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
