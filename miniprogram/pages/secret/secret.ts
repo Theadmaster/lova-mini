@@ -8,26 +8,60 @@ Page({
 
   },
 
+  goAnimate() {
+    this.leftAnimate()
+    this.rightAnimate()
+  },
   leftAnimate() {
-    
     // 获取圆形元素的动画对象
     const animation = wx.createAnimation({
-      duration: 2000, // 动画持续时间，单位为毫秒
+      duration: 400, // 动画持续时间，单位为毫秒
       timingFunction: 'linear', // 动画速度函数，线性速度
     });
+
+    animation.translateX(140).rotate(360).step(); 
     
     // 定义动画关键帧
-    animation.translate3d(10,10,0).step(); // 按照您的需求定义位移和旋转动画
+    // animation.translate3d(28,-84,0).step(); 
+    // animation.translate3d(56,-112,0).step();
+    // animation.translate3d(84,-128.3,0).step();
+    // animation.translate3d(112,-137.2,0).step();
+    // animation.translate3d(140,-140,0).step();
+    // animation.translate3d(168,-137.2,0).step(); 
+    // animation.translate3d(196,-128.3,0).step();
+    // animation.translate3d(224,-112,0).step();
+    // animation.translate3d(252,-84.2,0).step();
+    // animation.translate3d(280,0,0).step();
+    
+    // animation.translate3d(252,84.2,0).step();
+    // animation.translate3d(224,112,0).step();
+    // animation.translate3d(196,128.3,0).step();
+    // animation.translate3d(168,137.2,0).step(); 
+    // animation.translate3d(140,140,0).step();
+    // animation.translate3d(112,137.2,0).step();
+    // animation.translate3d(84,128.3,0).step();
+    // animation.translate3d(56,112,0).step();
+    // animation.translate3d(28,84,0).step(); 
+    // animation.translate3d(0,0,0).step();
 
     // 更新视图
     this.setData({
-      animationData: animation.export(),
+      leftAnimationData: animation.export(),
     });
 
   },
 
   rightAnimate() {
+    // 获取圆形元素的动画对象
+    const animation = wx.createAnimation({
+      duration: 500, // 动画持续时间，单位为毫秒
+      timingFunction: 'linear', // 动画速度函数，线性速度
+    });
 
+    animation.translateX(-140).rotate(360).step(); 
+    this.setData({
+      rightAnimationData: animation.export(),
+    });
   },
 
   goTap() {
