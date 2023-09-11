@@ -10,6 +10,20 @@ Page({
 
   leftAnimate() {
     
+    // 获取圆形元素的动画对象
+    const animation = wx.createAnimation({
+      duration: 2000, // 动画持续时间，单位为毫秒
+      timingFunction: 'linear', // 动画速度函数，线性速度
+    });
+    
+    // 定义动画关键帧
+    animation.translate3d(10,10,0).step(); // 按照您的需求定义位移和旋转动画
+
+    // 更新视图
+    this.setData({
+      animationData: animation.export(),
+    });
+
   },
 
   rightAnimate() {
@@ -17,7 +31,7 @@ Page({
   },
 
   goTap() {
-    
+
   },
 
   goback() {
