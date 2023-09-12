@@ -5,12 +5,71 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    goHidden: true,
+    textInfo: {text: '', countdown: 60},
+    textList: [{text: '深情对视15秒钟', countdown: 15}, {text: '拥抱20秒', countdown: 20}],
+    timerLock: false,
+    textIndex: 0,
+    indexArr: [],
+    timer: {}
   },
 
+  // 开始计时
+  startTap() {
+    if (this.data.timerLock) {
+      return;
+    } else {
+      this.setData({
+        timerLock: true
+      })
+    }
+    let textInfo = this.data.textInfo
+    let timer = setInterval(() => {
+      if (textInfo.countdown <= 0 ) {
+        clearInterval(timer);
+        this.setData({
+          timerLock: false
+        })
+      } else {
+        textInfo.countdown--;
+      }
+      this.setData({
+        textInfo: textInfo
+      })
+    }, 1000)
+
+    this.setData({
+      timer: timer
+    })
+  },
+
+  // 下一个挑战
+  nextTap() {
+    
+    let {indexArr, textIndex, textList, timerLock} = this.data
+
+    if (timerLock) {
+      clearInterval(this.data.timer);
+    }
+    this.setData({
+      textInfo: textList[indexArr[textIndex]],
+      textIndex: ++textIndex >= indexArr.length? indexArr.length-1 : textIndex,
+      timerLock: false,
+      timer: {}
+    })
+  },
+
+  // go开始
   goAnimate() {
     this.leftAnimate()
     this.rightAnimate()
+    setTimeout(() => {
+      this.setData({
+        goHidden: false
+      })
+    }, 1000);
+
+
   },
   leftAnimate() {
     // 获取圆形元素的动画对象
@@ -71,12 +130,33 @@ Page({
   goback() {
     wx.navigateBack()
   },
+  
+  // 生成随机数
+  shuffleNumbers(n:number):Array<number> {
+    // 创建包含0到n-1的初始数组
+    const initialArray = Array.from({ length: n }, (_, i) => i);
+  
+    // 使用 Fisher-Yates 洗牌算法混乱数组
+    for (let i = initialArray.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [initialArray[i], initialArray[j]] = [initialArray[j], initialArray[i]];
+    }
+  
+    return initialArray;
+  },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad() {
-
+    let arr:Array<number> = this.shuffleNumbers(this.data.textList.length)
+    let index = this.data.textIndex;
+    this.setData({
+      indexArr: arr,
+      textInfo: this.data.textList[arr[index]],
+      textIndex: ++this.data.textIndex
+    })
+    
   },
 
   /**
