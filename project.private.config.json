@@ -3,7 +3,8 @@
   "projectname": "gert.lova.mini",
   "setting": {
     "compileHotReLoad": true,
-    "bigPackageSizeSupport": true
+    "bigPackageSizeSupport": true,
+    "urlCheck": false
   },
   "condition": {
     "miniprogram": {

@@ -1,4 +1,5 @@
 // pages/secret/secret.ts
+import api from "../../utils/request"
 Page({
 
   /**
@@ -10,8 +11,8 @@ Page({
     textList: [{text: '深情对视15秒钟', countdown: 15}, {text: '拥抱20秒', countdown: 20}],
     timerLock: false,
     textIndex: 0,
-    indexArr: [],
-    timer: {}
+    timer: 0,
+    pageSize: 10,
   },
 
   // 开始计时
@@ -44,18 +45,22 @@ Page({
   },
 
   // 下一个挑战
-  nextTap() {
+  async nextTap() {
     
-    let {indexArr, textIndex, textList, timerLock} = this.data
+    let {textIndex, textList, timerLock, timer, pageSize} = this.data
+    
 
     if (timerLock) {
-      clearInterval(this.data.timer);
+      clearInterval(timer);
+    }
+    if (textIndex >= pageSize) {
+      await this.getSentences()
     }
     this.setData({
-      textInfo: textList[indexArr[textIndex]],
-      textIndex: ++textIndex >= indexArr.length? indexArr.length-1 : textIndex,
+      textInfo: textList[textIndex],
+      textIndex: ++textIndex,
       timerLock: false,
-      timer: {}
+      timer: 0
     })
   },
 
@@ -80,29 +85,6 @@ Page({
 
     animation.translateX(140).rotate(360).step(); 
     
-    // 定义动画关键帧
-    // animation.translate3d(28,-84,0).step(); 
-    // animation.translate3d(56,-112,0).step();
-    // animation.translate3d(84,-128.3,0).step();
-    // animation.translate3d(112,-137.2,0).step();
-    // animation.translate3d(140,-140,0).step();
-    // animation.translate3d(168,-137.2,0).step(); 
-    // animation.translate3d(196,-128.3,0).step();
-    // animation.translate3d(224,-112,0).step();
-    // animation.translate3d(252,-84.2,0).step();
-    // animation.translate3d(280,0,0).step();
-    
-    // animation.translate3d(252,84.2,0).step();
-    // animation.translate3d(224,112,0).step();
-    // animation.translate3d(196,128.3,0).step();
-    // animation.translate3d(168,137.2,0).step(); 
-    // animation.translate3d(140,140,0).step();
-    // animation.translate3d(112,137.2,0).step();
-    // animation.translate3d(84,128.3,0).step();
-    // animation.translate3d(56,112,0).step();
-    // animation.translate3d(28,84,0).step(); 
-    // animation.translate3d(0,0,0).step();
-
     // 更新视图
     this.setData({
       leftAnimationData: animation.export(),
@@ -128,34 +110,33 @@ Page({
   },
 
   goback() {
-    wx.navigateBack()
+    wx.switchTab({
+      url: '../home/home'
+    })
   },
   
-  // 生成随机数
-  shuffleNumbers(n:number):Array<number> {
-    // 创建包含0到n-1的初始数组
-    const initialArray = Array.from({ length: n }, (_, i) => i);
-  
-    // 使用 Fisher-Yates 洗牌算法混乱数组
-    for (let i = initialArray.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [initialArray[i], initialArray[j]] = [initialArray[j], initialArray[i]];
-    }
-  
-    return initialArray;
+
+  // 获取语料
+  getSentences() {
+    api.post('/getSentences', {pageSize: this.data.pageSize}).then( (res:any) => {
+      // console.log(res);
+      this.setData({
+        textIndex: 0,
+        textList: res.data.data,
+        textInfo: res.data.data[0]
+      })
+      
+    }).catch( (err: any) => {
+      console.log(err);
+      
+    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad() {
-    let arr:Array<number> = this.shuffleNumbers(this.data.textList.length)
-    let index = this.data.textIndex;
-    this.setData({
-      indexArr: arr,
-      textInfo: this.data.textList[arr[index]],
-      textIndex: ++this.data.textIndex
-    })
+    this.getSentences()
     
   },
 
