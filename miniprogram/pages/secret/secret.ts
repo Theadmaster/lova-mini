@@ -1,5 +1,5 @@
 // pages/secret/secret.ts
-import api from "../../utils/request"
+import * as api from "../../utils/request"
 Page({
 
   /**
@@ -57,8 +57,8 @@ Page({
       await this.getSentences()
     }
     this.setData({
-      textInfo: textList[textIndex],
       textIndex: ++textIndex,
+      textInfo: textList[textIndex],
       timerLock: false,
       timer: 0
     })

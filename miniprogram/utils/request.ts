@@ -36,19 +36,19 @@ const request = function(url: string,options: any){
 }
    
 
-  module.exports = {
-      //封装get方法
-      get(url: string,data: any){
-          return request(url,{
-              method:"GET",
-              data
-          })
-      },
-      //封装post方法
-      post(url:string,data: any){
-          return request(url,{
-              method:"POST",
-              data
-          })
-      }
-  }
+
+//封装get方法
+export function get (url: string,data: any){
+  return request(url,{
+      method:"GET",
+      data
+  })
+}
+//封装post方法
+export function post(url:string,data: any){
+    return request(url,{
+        method:"POST",
+        data
+    })
+}
+  
