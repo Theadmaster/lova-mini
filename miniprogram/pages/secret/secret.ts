@@ -1,5 +1,9 @@
 // pages/secret/secret.ts
+// @ts-nocheck
 import * as api from "../../utils/request"
+import * as audioManage from "../../utils/audioManager"
+
+
 Page({
 
   /**
@@ -13,6 +17,7 @@ Page({
     textIndex: 0,
     timer: 0,
     pageSize: 10,
+    audioManager: {},
   },
 
   // 开始计时
@@ -24,9 +29,14 @@ Page({
         timerLock: true
       })
     }
+    // 开始计时音频
+    this.data.audioManager.play('/miniprogram/assets/audio/start.mp3')
+    
     let textInfo = this.data.textInfo
     let timer = setInterval(() => {
       if (textInfo.countdown <= 0 ) {
+        // 计时结束音频
+        // this.data.innerAudioContextEnd.play()
         clearInterval(timer);
         this.setData({
           timerLock: false
@@ -137,7 +147,11 @@ Page({
    */
   onLoad() {
     this.getSentences()
-    
+    const audioManager = audioManage.InnerAudio()
+    audioManager.create()
+    this.setData({
+      audioManager: audioManager
+    })
   },
 
   /**
@@ -158,7 +172,12 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide() {
-
+    const { timer } = this.data
+    clearInterval(timer)
+    this.setData({
+      timerLock: false,
+      timer: 0,
+    })
   },
 
   /**

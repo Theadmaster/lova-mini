@@ -1,2 +1,40 @@
-<!--pages/times/times.wxml-->
-<text>pages/times/times.wxml</text>
+<view class="container-times">
+  <view class="title">
+    <text>时间轴</text>
+  </view>
+  <view class="dynamic-list">
+    <view class="dynamic-item" wx:for="{{list}}">
+      <view class="dy-logo">
+        <open-data type="userAvatarUrl"></open-data>
+      </view>
+      <view class="dy-content">
+        <view class="header">
+          <text class="name">{{item.name}}</text>
+          <text class="time">{{item.time}}</text>
+        </view>
+        <view class="content">
+          <text wx:if="{{item.text}}">{{item.text}}</text>
+          <view></view>
+        </view>
+        <view class="addr">
+          <image src="../../assets/images/position-fill.png" mode=""/>
+          <text>{{item.position}}</text>
+        </view>
+        <view class="footer">
+          <view class="icon" bindtap="likeTap({{item.id}})">
+            <image wx:if="{{!item.like}}" src="../../assets/images/unlike.png" mode=""/>
+            <image wx:else="" src="../../assets/images/like.png" mode=""/>
+            <text>10</text>
+          </view>
+          <view class="icon" bindtap="commentTap({{item.id}})">
+            <image src="../../assets/images/comment.png" mode=""/>
+          </view>
+          <view class="icon">
+            <image src="../../assets/images/share.png" mode=""/>
+          </view>
+        </view>
+        <view class="comment"></view>
+      </view>
+    </view>
+  </view>
+</view>

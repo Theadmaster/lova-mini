@@ -1,7 +1,9 @@
 // app.ts
 App<IAppOption>({
   globalData: {
-    baseUrl: 'http://127.0.0.1:3000/api/v1',
+    // baseUrl: 'http://127.0.0.1:3000/api/v1',
+    baseUrl: 'https://gertyt.cn/api/v1',
+    
   },
   onLaunch() {
     // 展示本地存储能力

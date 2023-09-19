@@ -10,6 +10,20 @@
     "miniprogram": {
       "list": [
         {
+          "name": "times",
+          "pathName": "pages/times/times",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/index/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "",
           "pathName": "pages/home/home",
           "query": "",
