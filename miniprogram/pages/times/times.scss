@@ -4,8 +4,20 @@
   height: 100vh;
   padding: 0 20rpx;
   overflow: hidden;
+  position: relative;
+  .add {
+    position: absolute;
+    border-radius: 50%;
+    image {
+      height: 100rpx;
+      width: 100rpx;
+    }
+    right: 45rpx;
+    bottom: 100rpx;
+    z-index: 2000;
+  }
   .title {
-    margin: 100rpx 30rpx 60rpx 0rpx; 
+    margin: 100rpx 30rpx 60rpx 30rpx; 
     font-size: 40rpx;
     font-weight: 400;
   }
@@ -14,6 +26,10 @@
     // border: 1px solid #000;
     overflow: scroll;
     padding-top: 12rpx;
+    .blank {
+      height: 350rpx;
+      width: inherit;
+    }
     .dynamic-item {
       position: relative;
       margin-bottom: 50rpx;
@@ -25,14 +41,16 @@
         height: 100rpx;
         margin: 20rpx;
         border-radius: 50%;
+        box-shadow: 10rpx 10rpx 15rpx 0rpx rgba($color: #c3ccd4, $alpha: 0.6);
       }
       .dy-content {
         width: 520rpx;
         // min-height: 150rpx;
         // border: 1px solid #000;
-        box-shadow: 10rpx 5rpx 25rpx 0rpx rgba($color: #c3ccd4, $alpha: 0.6);
+        // background-color: rgba($color: #fc8ea1, $alpha: 0.1);
+        box-shadow: 10rpx 5rpx 15rpx 0rpx rgba($color: #c3ccd4, $alpha: 0.6);
         margin-left: 80rpx;
-        border-radius: 15rpx;
+        border-radius: 30rpx;
         padding:20rpx 20rpx 20rpx 60rpx;
         .header {
           display: flex;

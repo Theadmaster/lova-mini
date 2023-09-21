@@ -24,6 +24,43 @@ Page({
         position: 'Australia·Sedny',
         comment: [{name: 'john', text: '喜欢.'}]
       },
+      {
+        name: 'gert',
+        time: 'Dec 3, 2023',
+        text: '迷人的悉尼夜晚。',
+        like: 0,
+        avatar: '',
+        position: 'Australia·Sedny',
+        comment: [{name: 'john', text: '喜欢.'}]
+      },
+      {
+        name: 'gert',
+        time: 'Dec 3, 2023',
+        text: '迷人的悉尼夜晚。',
+        like: 0,
+        avatar: '',
+        position: 'Australia·Sedny',
+        comment: [{name: 'john', text: '喜欢.'}]
+      },
+      {
+        name: 'gert',
+        time: 'Dec 3, 2023',
+        text: '迷人的悉尼夜晚。',
+        like: 0,
+        avatar: '',
+        position: 'Australia·Sedny',
+        comment: [{name: 'john', text: '喜欢.'}]
+      },
+      {
+        name: 'gert',
+        time: 'Dec 3, 2023',
+        text: '迷人的悉尼夜晚。',
+        like: 0,
+        avatar: '',
+        position: 'Australia·Sedny',
+        comment: [{name: 'john', text: '喜欢.'}]
+      },
+      
     ]
   },
 

@@ -29,10 +29,11 @@
     height: 600rpx;
     width: 690rpx;
     background-color: #fff;
-    box-shadow: 8rpx 8rpx 20rpx #eee;
+    // box-shadow: 8rpx 8rpx 20rpx #eee;
+    box-shadow: 10rpx 5rpx 25rpx 0rpx rgba($color: #c3ccd4, $alpha: 0.6);
     border-radius: 26rpx;
     position: absolute;
-    top: 660rpx;
+    top: 600rpx;
     left: 0;
     right: 0;
     margin: auto;

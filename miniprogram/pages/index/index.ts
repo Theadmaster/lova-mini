@@ -1,6 +1,7 @@
 // index.ts
 // 获取应用实例
-const app = getApp<IAppOption>()
+// const app = getApp<IAppOption>()
+import * as api from "../../utils/request"
 
 Page({
   data: {
@@ -25,12 +26,23 @@ Page({
       })
     }
   },
+  
   getUserProfile() {
     // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认，开发者妥善保管用户快速填写的头像昵称，避免重复弹窗
+    
     wx.getUserProfile({
       desc: '展示用户信息', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
-      success: (res) => {
+      success: (res:any) => {
         console.log(res)
+        // @ts-ignore
+        wx.setStorage('userInfo', res.userInfo)
+        api.post('/mini/userInfo', {...res, openId: wx.getStorageSync('openid'), 
+                                  sessionKey: wx.getStorageSync('sessionKey')})
+           .then(res => {
+             console.log(res);
+           }).catch( err => {
+             console.log(err);
+           })
         this.setData({
           userInfo: res.userInfo,
           hasUserInfo: true
@@ -44,6 +56,27 @@ Page({
     this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
+    })
+  },
+  // @ts-ignore
+  userLogin() {
+    wx.login({
+      success (res) {
+        if (res.code) {
+          console.log(res.code);
+          //发起网络请求
+          api.post('/mini/login', {code: res.code}).then( (res: any) => {
+            let data = res.data
+            wx.setStorageSync('openid', data.openid)
+            wx.setStorageSync('sessionKey', data.session_key)
+          }).catch( err => {
+            console.log(err);
+            
+          })
+        } else {
+          console.log('登录失败！' + res.errMsg)
+        }
+      }
     })
   }
 })

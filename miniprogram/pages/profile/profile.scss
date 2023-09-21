@@ -1,1 +1,68 @@
 /* pages/profile/profile.wxss */
+.container {
+  // border: 1px solid #000;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  .header {
+    margin-bottom: 30rpx;
+    position: relative;
+    .logo {
+      border-radius: 50%;
+      overflow: hidden;
+      height: 180rpx;
+      width: 180rpx;
+      box-shadow: 5rpx 5rpx 25rpx 0rpx rgba($color: #d2dbe4, $alpha: 0.6);
+      
+    }
+    .another {
+      box-shadow: 5rpx 5rpx 25rpx 0rpx rgba($color: #d2dbe4, $alpha: 0.6);
+      position: absolute;
+      height: 150rpx;
+      width: 150rpx;
+      left: 125rpx;
+      top: 0;
+      bottom: 0;
+      border: 2px solid rgba($color: #ff4b6a, $alpha: .5);
+      border-radius: 50%;
+      z-index: -1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bolder;;
+      font-size: 45rpx;
+      color: rgba($color: #ff4b6a, $alpha: .5);
+    }
+
+    .info {
+      // border: 1px solid #000;
+      display: flex;
+      justify-content: center;
+      height: 100rpx;
+      align-items: center;
+      font-weight: bolder;
+      font-size: 40rpx;
+    }
+
+  }
+
+  .list {
+    .item {
+      margin: 30rpx;
+      height: 105rpx;
+      width: 680rpx;
+      background-color: rgba($color: #fc8ea1, $alpha: 0.2);
+      border-radius: 20rpx;
+      display: flex;
+      align-items: center;
+      box-sizing: border-box;
+      padding: 0 30rpx;
+      box-shadow: 5rpx 5rpx 25rpx 0rpx rgba($color: #d2dbe4, $alpha: 0.6);
+      image {
+        height: 45rpx;
+        width: 45rpx;
+        margin-right: 35rpx;
+      }
+    }
+  }
+
+}

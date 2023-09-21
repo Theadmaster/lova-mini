@@ -1,9 +1,12 @@
 <view class="container-times">
+  <view class="add">
+    <image src="../../assets/images/Add.png" mode=""/>
+  </view>
   <view class="title">
     <text>时间轴</text>
   </view>
   <view class="dynamic-list">
-    <view class="dynamic-item" wx:for="{{list}}">
+    <view class="dynamic-item" wx:for="{{list}}" wx:key="index">
       <view class="dy-logo">
         <open-data type="userAvatarUrl"></open-data>
       </view>
@@ -36,5 +39,6 @@
         <view class="comment"></view>
       </view>
     </view>
+    <view class="blank"></view>
   </view>
 </view>
