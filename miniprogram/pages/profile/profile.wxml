@@ -15,10 +15,10 @@
   </view> -->
 
   <view class="list">
-    <view class="item">
+    <button class="item" bindtap="shareToTa" open-type="share">
       <image src="../../assets/images/binding.png" mode=""/>
       <text>绑定另一半</text>
-    </view>
+    </button>
     <view class="item">
       <image src="../../assets/images/upload.png" mode=""/>
       <text>上传首页背景</text>

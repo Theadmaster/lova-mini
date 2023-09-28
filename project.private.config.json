@@ -10,6 +10,13 @@
     "miniprogram": {
       "list": [
         {
+          "name": "",
+          "pathName": "pages/publishMoment/publishMoment",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "profile",
           "pathName": "pages/profile/profile",
           "query": "",

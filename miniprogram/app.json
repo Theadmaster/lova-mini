@@ -6,14 +6,14 @@
     "pages/profile/profile",
     "pages/times/times",
     "pages/games/games",
-    "pages/secret/secret"
+    "pages/secret/secret",
+    "pages/publishMoment/publishMoment"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "Weixin",
-    "navigationBarTextStyle": "black",
-    "navigationStyle": "custom"
+    "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "color": "#a9b7b7",
@@ -39,6 +39,9 @@
         "text": ""
       }
     ]
+  },
+  "useExtendedLib": {
+    "weui": true
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"

@@ -60,8 +60,14 @@ Page({
         position: 'Australia·Sedny',
         comment: [{name: 'john', text: '喜欢.'}]
       },
-      
+
     ]
+  },
+
+  addMoment() {
+    wx.navigateTo({
+      url: '../publishMoment/publishMoment',
+    })
   },
 
   /**

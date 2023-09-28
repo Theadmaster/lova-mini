@@ -1,0 +1,42 @@
+
+<view class="container-publish">
+
+  <view>
+    <mp-form id="form" rules="{{rules}}" models="{{formData}}">
+      <mp-cells>
+        <!-- <mp-cell value=""></mp-cell> -->
+        <mp-cell>
+          <view class="form-item">
+            <textarea value="{{formData.text}}" placeholder="快记录一下甜蜜时刻吧！" placeholder-style="color: '#000'"/>
+          </view>
+        </mp-cell>
+        <mp-cell>
+           <mp-uploader 
+            delete="{{true}}"
+            select="{{selectFile}}"
+            upload="{{uploadFile}}"
+            files="{{files}}"
+            max-count="5"
+            tips="图片上传提示"
+            bindfail="{{uploadFail}}"
+            bindsuccess="{{uploadSuccess}}"
+           >
+          </mp-uploader>
+        </mp-cell>
+        <mp-cell  bindtap="{{getLocation}}">
+          <view class="location">
+            <image src="../../assets/images/position-fill.png" mode=""/>
+            <text>{{formData.location}}</text>
+          </view>
+        </mp-cell>
+        
+      </mp-cells>
+
+      
+    </mp-form>
+    <view class="submit">
+          <button>提交</button>
+        </view>
+  </view>
+</view>
+

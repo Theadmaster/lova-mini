@@ -1,0 +1,24 @@
+.container-publish {
+  padding: 40rpx 40rpx;
+
+  .form-item {
+    min-height: 100rpx;
+    width: inherit;
+    // border: 1px solid #000;
+  }
+}
+.location {
+  display: flex !important;
+  align-items: center;
+  image {
+    height: 50rpx;
+    width: 50rpx;
+    margin-right: 10rpx;
+  }
+}
+
+.submit {
+  height: 400rpx;
+  width: inherit;
+
+}

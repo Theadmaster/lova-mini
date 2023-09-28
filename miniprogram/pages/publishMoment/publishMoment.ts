@@ -1,32 +1,53 @@
-// pages/profile/profile.ts
+// pages/publishMoment/publishMoment.ts
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    rules: [],
+    formData: {
+      location: '浙江省杭州市西湖区文三路',
+      text: '',
+      images: '',
+      video: ''
+    }
+  },
+  // 获取地址
+  getLocation() {
 
   },
+  selectFile(files) {
+    console.log('files', files);
+    
+  },
 
-  shareToTa() {
-    wx.showShareMenu({
-      withShareTicket: true,
-      menus: ['shareAppMessage'],
-      success: (res) => {
-        console.log(res);
-        
-      },
-      fail: (err) => {
-        console.log(err);
-        
-      }
+  uploadFile(files) {
+    console.log('upload files', files);
+    
+    return new Promise((resolve, reject) => {
+      // upload
     })
+    
   },
+
+  uploadFail(e) {
+    console.log('upload fail ', e)
+  },
+
+  uploadSuccess(e) {
+    console.log('upload success', e);  
+  },
+
+
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad() {
+    wx.setNavigationBarTitle({
+      title: '发布时刻'
+    })
 
   },
 

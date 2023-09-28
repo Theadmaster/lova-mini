@@ -1,5 +1,5 @@
 <view class="container-times">
-  <view class="add">
+  <view class="add" bindtap="addMoment">
     <image src="../../assets/images/Add.png" mode=""/>
   </view>
   <view class="title">
